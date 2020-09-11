@@ -22,7 +22,13 @@ public class DefaultLidMailing implements LidMailing{
             var helper = new MimeMessageHelper(message);
             helper.setTo(lid.getEmailAdres());
             helper.setSubject("Geregistreerd");
-            helper.setText("<h1>Je bent nu lid.</h1>Je nummer is:" + lid.getId(), true); sender.send(message); }
+            var urlVanDeLidInfo = ledenURL + "/" + lid.getId();
+            var tekst = "<h1>Je bent nu lid.</h1>Je nummer is:" +
+                    lid.getId() + "." + "Je ziet je info <a href='"
+                    + urlVanDeLidInfo + "'>hier</a>.";
+            helper.setText(tekst, true);
+            //helper.setText("<h1>Je bent nu lid.</h1>Je nummer is:" + lid.getId(), true); sender.send(message);
+            }
         catch (MailException | MessagingException ex) {
             throw new KanMailNietZendenException(ex);
         }
