@@ -37,7 +37,8 @@ class LidController {
     @PostMapping
     public String regstreer(@Valid Lid lid, Errors errors,
                             RedirectAttributes redirect, HttpServletRequest request) {
-        if (errors.hasErrors()) { return "registratieform";
+        if (errors.hasErrors()) {
+            return "registratieform";
         }
         try {
             lidService.registreer(lid, request.getRequestURL().toString());
@@ -55,11 +56,13 @@ class LidController {
     }
     @GetMapping("nietgeregistreerd")
     public String nietGeregistreerd() {
-        return "nietgeregistreerd"; }
+        return "nietgeregistreerd";
+    }
 
     @GetMapping("{id}")
     public ModelAndView info(@PathVariable long id) {
         var modelAndView = new ModelAndView("lidinfo");
-    lidService.findById(id).ifPresent(modelAndView::addObject);
-    return modelAndView; }
+        lidService.findById(id).ifPresent(modelAndView::addObject);
+        return modelAndView;
+    }
 }
