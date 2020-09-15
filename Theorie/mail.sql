@@ -12,5 +12,5 @@ CREATE TABLE leden (
   lidsinds date not null
 );
 
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select,insert on leden to cursist;

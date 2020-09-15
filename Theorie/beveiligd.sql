@@ -52,7 +52,7 @@ CREATE TABLE gebruikersrollen (
 
 INSERT INTO `gebruikersrollen` VALUES (1,1),(2,2),(2,3);
 
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select on users to cursist;
 grant select on authorities to cursist;
 grant select on gebruikers to cursist;

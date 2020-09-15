@@ -19,5 +19,5 @@ INSERT INTO filialen(naam,gemeente,omzet) VALUES
 ('Ikaria','Wevelgem',5000),
 ('Oinouses','Oostende',6000);
 
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select,insert,update,delete on filialen to cursist;

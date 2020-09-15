@@ -17,6 +17,6 @@ create table artikels (
   constraint artikelsArtikelGroepen foreign key (artikelGroepId) references artikelgroepen(id)
 );
 
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select,insert on artikelGroepen to cursist;
 grant select,insert on artikels to cursist;

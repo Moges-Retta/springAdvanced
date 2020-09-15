@@ -19,6 +19,6 @@ create table werknemers(
   constraint werknemersFilialen foreign key (filiaalId) references filialen(id)
 );
 
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select,insert,update,delete on filialen to cursist;
 grant select,insert,update,delete on werknemers to cursist;

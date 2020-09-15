@@ -17,5 +17,5 @@ INSERT INTO werknemers(familienaam,voornaam,emailAdres,paswoord) VALUES
  ('Jan','De Mol','jan.demol@firma.be','{bcrypt}$2a$10$i4MlDK9l7YM.cpwCY68j4OJP7CEin5.wFDJCptUP7CQWHnNPh6xjy'),
  ('Ann','De Pauw','ann.depauw@firma.be','{bcrypt}$2a$10$i4MlDK9l7YM.cpwCY68j4OJP7CEin5.wFDJCptUP7CQWHnNPh6xjy');
  
-create user if not exists cursist identified by 'cursist';
+/*create user if not exists cursist identified by 'cursist';*/
 grant select on werknemers to cursist;
