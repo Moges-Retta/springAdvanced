@@ -4,6 +4,7 @@ import be.vdab.restservice.domain.Filiaal;
 import be.vdab.restservice.domain.FiliaalIdNaam;
 import be.vdab.restservice.exceptions.FiliaalNietGevondenException;
 import be.vdab.restservice.services.FiliaalService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.EntityLinks;
@@ -36,6 +37,7 @@ public class FiliaalController {
                 .orElseThrow(FiliaalNietGevondenException::new);
     }*/
     @GetMapping("{id}")
+    @Operation(summary = "Een filiaal zoeken op id")
     EntityModel<Filiaal> get(@PathVariable long id) {
         return service.findById(id).map(filiaal ->
                 EntityModel.of(filiaal, entityLinks.linkToItemResource(Filiaal.class, filiaal.getId()),
@@ -51,6 +53,7 @@ public class FiliaalController {
     }
 
     @DeleteMapping("{id}")
+    @Operation(summary = "Een filiaal verwijderen")
     void delete(@PathVariable long id) {
         service.delete(id);
     }
@@ -73,6 +76,7 @@ public class FiliaalController {
     }
 
     @PutMapping("{id}")
+    @Operation(summary = "Een filiaal wijzigen")
     void put(@RequestBody @Valid Filiaal filiaal) {
         service.update(filiaal);
     }
