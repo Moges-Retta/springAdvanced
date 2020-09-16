@@ -29,6 +29,7 @@ public class AlbumController {
     }
     @GetMapping("{id}")
     EntityModel<AlbumNaamEnArtiest> get(@PathVariable long id) {
+
         return service.findById(id).map(album ->
                 EntityModel.of(new AlbumNaamEnArtiest(album),entityLinks.linkToItemResource(Album.class, album.getId()),
                         entityLinks.linkForItemResource(Album.class, album.getId())
