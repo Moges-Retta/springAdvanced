@@ -12,7 +12,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = {})
+@Constraint(validatedBy = PrijsValidator.class)
 @PositiveOrZero
 @Digits(integer = 7, fraction = 2)
 public @interface Prijs {
