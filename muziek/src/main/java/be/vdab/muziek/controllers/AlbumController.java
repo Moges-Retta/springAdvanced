@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/albums")
 @ExposesResourceFor(Album.class)
+@CrossOrigin(exposedHeaders = "Location")
 public class AlbumController {
     private final AlbumService service;
     private final EntityLinks entityLinks;
